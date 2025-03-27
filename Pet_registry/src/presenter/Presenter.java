@@ -19,9 +19,10 @@ public class Presenter {
     }
 
     //Точка входа
-    public void run() throws IOException {
-        view.showPetRegistry();
+    public void run() throws IOException, ClassNotFoundException {
+        fileOperations.loadFromFile();
         model.checkData(view.inputDate());
-        fileOperations.saveToFile(model.getLastName(), model.getFirstName(), model.getSecondName(), model.getDateOfBirth(), model.getTelephone(), model.getGender());
+        fileOperations.saveToFile(model.getAnimalId(), model.getNickName(), model.getGender(), model.getDateOfBirth(),
+                model.getClassAnimal(), model.getSpeciesAnimal(), model.getBreedAnimal(), model.getAnimalType());
     }
 }

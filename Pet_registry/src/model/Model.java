@@ -5,41 +5,51 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class Model {
-    //В этом классе основная бизнесслогика т.е методы проверки введённых данных
+    //В этом классе основная бизнес логика т.е методы проверки введённых данных
 
     //Поля класса
-    private String lastName;
-    private String firstName;
-    private String secondName;
+    private Integer animalId;
+    private String nickName;
+    private Character gender;
     private  LocalDate dateOfBirth;
-    private long telephone;
-    private char gender;
+    private String classAnimal;
+    private String speciesAnimal;
+    private String breedAnimal;
+    private String animalType;
 
 
     //Геттеры
 
-    public String getLastName() {
-        return lastName;
+    public Integer getAnimalId() {
+        return animalId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getNickName() {
+        return nickName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public Character getGender() {
+        return gender;
     }
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public long getTelephone() {
-        return telephone;
+    public String getClassAnimal() {
+        return classAnimal;
     }
 
-    public char getGender() {
-        return gender;
+    public String getSpeciesAnimal() {
+        return speciesAnimal;
+    }
+
+    public String getBreedAnimal() {
+        return breedAnimal;
+    }
+
+    public String getAnimalType() {
+        return animalType;
     }
 
 
@@ -47,12 +57,11 @@ public class Model {
     //Основной метод проверки данных
     public void checkData(String[] data) {
         try {
-            this.lastName = data[0];
-            this.firstName = data[1];
-            this.secondName = data[2];
+            this.animalId = Integer.valueOf(data[0]);
+            this.nickName = data[1];
+            this.gender = checkGender(data[2]);
             this.dateOfBirth = checkDateOfBirth(data[3]);
-            this.telephone = checkTelephone(data[4]);
-            this.gender = checkGender(data[5]);
+
 
         } catch (NumberFormatException e) {
             System.out.println("Ошибка преобразования String в int : " + e.getMessage());
@@ -64,8 +73,8 @@ public class Model {
     }
 
     //Метод для проверки пола
-    public static char checkGender(String gender)  {
-        char genderChar;
+    public static Character checkGender(String gender)  {
+        Character genderChar;
         if (gender.length() != 1) {
             throw new IllegalArgumentException("Аргумент 'пол' содержит более одного символа");
         } else {
@@ -79,14 +88,6 @@ public class Model {
         }
     }
 
-    //Метод для проверки телефона
-    public static long checkTelephone(String telephone) {
-        try {
-            return Long.parseLong(telephone);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Аргумент 'телефон' должен быть числом");
-        }
-    }
 
     //Метод проверки даты (подсмотрел в эталонном решении)
     public static LocalDate checkDateOfBirth(String dateOfBirth)  {

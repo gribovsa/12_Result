@@ -1,0 +1,8 @@
+1 Tom f 1981-03-09 Mammals Cat British Pets
+2 Lora m 2020-05-03 null null null null
+3 Mora m 1985-02-03 null null null null
+4 Tor f 1956-05-02 null null null null
+5 Nick f 1999-01-03 null null null null
+6 Noy f 1985-05-02 null null null null
+7 Boy f 2024-02-15 null null null null
+8 Yom f 2003-05-19 null null null null
