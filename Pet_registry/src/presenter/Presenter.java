@@ -1,11 +1,14 @@
 package presenter;
 
+
 import model.Model;
 
 import services.FileOperations;
 import view.ConsoleView;
 
 import java.io.IOException;
+
+
 
 public class Presenter {
     private final Model model;
@@ -21,8 +24,10 @@ public class Presenter {
     //Точка входа
     public void run() throws IOException, ClassNotFoundException {
         fileOperations.loadFromFile();
+        System.out.println("Всего записей: " + fileOperations.getNumberRecord());
+        Integer ID = fileOperations.getNumberRecord() +1;
         model.checkData(view.inputDate());
-        fileOperations.saveToFile(model.getAnimalId(), model.getNickName(), model.getGender(), model.getDateOfBirth(),
+        fileOperations.saveToFile(ID, model.getNickName(), model.getGender(), model.getDateOfBirth(),
                 model.getClassAnimal(), model.getSpeciesAnimal(), model.getBreedAnimal(), model.getAnimalType());
     }
 }
