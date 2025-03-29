@@ -20,7 +20,10 @@ public class Model {
     private String speciesAnimal;
     private String breedAnimal;
     private String animalType;
-    private FileOperations fileOperations;
+
+    private String animalId;
+    private String skillName;
+
 
 
 
@@ -54,11 +57,18 @@ public class Model {
         return animalType;
     }
 
+    public String getId() {
+        return animalId;
+    }
+
+    public String getSkillName() {
+        return skillName;
+    }
 
     //Основной метод проверки данных
     public void checkData(String[] data) throws IOException {
         try {
-            //this.animalId = 12;
+
             this.nickName = data[0];
             this.gender = checkGender(data[1]);
             this.dateOfBirth = checkDateOfBirth(data[2]);
@@ -66,7 +76,6 @@ public class Model {
             this.speciesAnimal = data[4];
             this.breedAnimal = data[5];
             this.animalType = data[6];
-            //System.out.printf("!!!результат!!!" + fileOperations.getNumberRecord() + 1);
 
         } catch (NumberFormatException e) {
             System.out.println("Ошибка преобразования String в int : " + e.getMessage());
@@ -94,7 +103,7 @@ public class Model {
     }
 
 
-    //Метод проверки даты (подсмотрел в эталонном решении)
+    //Метод проверки даты
     public static LocalDate checkDateOfBirth(String dateOfBirth)  {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -102,6 +111,29 @@ public class Model {
         } catch (DateTimeParseException e){ //ловлю ошибку парсинга
             throw new IllegalArgumentException("Введите дату в формате yyyy-MM-dd Ошибка: " + e.getMessage());
         }
+    }
+
+    //Метод для проверки числа
+    public static String checkNumber(String number) {
+        try {
+            return String.valueOf(number);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Аргумент должен быть числом");
+        }
+    }
+
+    //Метод ля проверки навыков (пока что проверяю только id  животного, чтобы введённое зн-е было число)
+    public void checkSkill(String[]data){
+     try {
+         this.animalId = checkNumber(data[0]);
+         this.skillName = data[1];
+     } catch (NumberFormatException e) {
+         System.out.println("Ошибка преобразования String в int : " + e.getMessage());
+     } catch (IllegalArgumentException e) {
+         System.out.println("Ошибка аргумента: " + e.getMessage());
+     } catch (NullPointerException e){
+         System.out.println("Ошибка аргумента, один из аргументов пуст: " + e.getMessage());
+     }
     }
 
 }

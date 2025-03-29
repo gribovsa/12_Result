@@ -15,6 +15,13 @@ public interface FileOperations {
     //Запись реестра в файл
     void loadFromFile() throws IOException, ClassNotFoundException;
 
-    //Получить количество записей
+    //Получить количество записей реестра
     Integer getNumberRecord() throws FileNotFoundException;
+
+    //Чтение навыков из файла
+    void loadFromSkillFile() throws IOException, ClassNotFoundException;
+
+    //Запись навыков в файл
+    void saveToSkillFile(String animalID, String skillName);
 }
+

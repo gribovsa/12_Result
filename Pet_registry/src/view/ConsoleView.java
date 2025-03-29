@@ -3,22 +3,34 @@ package view;
 
 import java.util.Scanner;
 
+
 public class ConsoleView {
     public static final int SIZE_LINE = 120;
     public static final String COLUMN_HEADER_FORMAT = "%-6s%-12s%-8s%-18s%-15s%-15s%-15s%-15s";
     public static final String GREEN_COLOR = "\u001B[32m";
     public static final String ANSI_RESET = "\u001B[0m";
 
-    public String[] mainMenu(){
+
+
+    public Integer mainMenu(){
         printColorLine("Доступные действия:", GREEN_COLOR);
         System.out.println("1 - [Добавить животное], 2 - [Показать навыки животного], 3 - [Добавить навык животному]");
         Scanner scanner = new Scanner(System.in);
         String data = scanner.nextLine();
-        scanner.close();
+        // scanner.close();
         if (data.equals("1")){
-            return inputDate();
+            return 1;
+        } else {
+            if (data.equals("2")){
+                return 2;
+            }else {
+                if (data.equals("3")){
+                    return 3;
+                }else {
+                    return 0;
+                }
+            }
         }
-        return null;
     }
 
 
@@ -39,6 +51,31 @@ public class ConsoleView {
             }
             if (dataArray.length != 7) {
                 throw new IllegalArgumentException("Неверное количество введённых данных, должно быть 7 аргументов!");
+            }
+            return dataArray;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Ошибка на этапе ввода данных: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public String[] inputSkill() {
+        System.out.println("Введите индекс животного, двоеточие, и перечислите через запятую навыки");
+        System.out.println("N: навык1, навык2, навык3.....");
+        Scanner scanner = new Scanner(System.in);
+        String data = scanner.nextLine();
+        scanner.close();
+
+        try {
+            if (data.isEmpty()){
+                throw new IllegalArgumentException("Вы ничего не ввели!");
+            }
+            String[] dataArray = data.split(":");
+            for (int i = 0; i < dataArray.length; i++) { //очищу элементы от возможных пробелов в начале и конце строки
+                dataArray[i] = dataArray[i].trim();
+            }
+            if (dataArray.length != 2) {
+                throw new IllegalArgumentException("Вы неверно ввели данные");
             }
             return dataArray;
         } catch (IllegalArgumentException e) {
