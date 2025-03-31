@@ -19,7 +19,7 @@ public interface FileOperations {
     Integer getNumberRecord() throws FileNotFoundException;
 
     //Чтение навыков из файла
-    void loadFromSkillFile() throws IOException, ClassNotFoundException;
+    void loadFromSkillFile(Integer numFindAnimal) throws IOException, ClassNotFoundException;
 
     //Запись навыков в файл
     void saveToSkillFile(String animalID, String skillName);

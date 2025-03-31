@@ -3,7 +3,6 @@ package services;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.sql.Array;
 import java.time.LocalDate;
 
 public class FileOperationsImpl implements FileOperations {
@@ -77,8 +76,10 @@ public class FileOperationsImpl implements FileOperations {
         }
     }
 
+
+
     @Override
-    public void loadFromSkillFile() throws IOException, ClassNotFoundException {
+    public void loadFromSkillFile(Integer numFindAnimal) throws IOException, ClassNotFoundException {
         try (BufferedReader reader = new BufferedReader(new FileReader(SKILL_FILE_NAME))) {
             //оформление
             clearConsole();
@@ -91,7 +92,10 @@ public class FileOperationsImpl implements FileOperations {
             String line;
             while ((line = reader.readLine()) != null) { //если строка не пустая
                 String[] arr = line.split(":");
-                System.out.println(String.format(COLUMN_SKILL_HEADER_FORMAT, arr[0], arr[1]));
+
+                if (numFindAnimal == Integer.parseInt(arr[0])){
+                    System.out.println(String.format(COLUMN_SKILL_HEADER_FORMAT, arr[0], arr[1]));
+                }
             }
             //оформление
             printLineWithSymbol("-", 120);

@@ -1,0 +1,366 @@
+
+
+# 1. Используя команду cat в терминале операционной системы Linux, создать
+# два файла Домашние животные (заполнив файл собаками, кошками,
+# хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и
+# ослы), а затем объединить их. Просмотреть содержимое созданного файла.
+# Переименовать файл, дав ему новое имя (Друзья человека).
+
+gribov@usvr:~$ cat > home_animals # создал первый
+кошка
+собака
+пёс
+хомяк
+попугай
+золотая рыбка
+
+gribov@usvr:~$ cat > pack_animals # создал второй
+мул
+лошадь
+як
+осёл
+верблюд
+
+gribov@usvr:~$ ll
+
+#----------------------------------------------------------------------------------------
+total 80
+drwxr-x--- 5 gribov gribov 4096 мар 20 09:54 ./
+drwxr-xr-x 3 root   root   4096 дек 20 10:46 ../
+-rw-rw-r-- 1 gribov gribov  140 мар 20 09:25 all.txt
+-rw------- 1 gribov gribov 2091 фев 27 17:57 .bash_history
+-rw-r--r-- 1 gribov gribov  220 мар 31  2024 .bash_logout
+-rw-r--r-- 1 gribov gribov 3771 мар 31  2024 .bashrc
+drwx------ 2 gribov gribov 4096 дек 20 10:47 .cache/
+-rwxrwxr-x 1 gribov gribov  244 фев 27 17:39 cycles.sh*
+-rw-rw-r-- 1 gribov gribov   36 фев 27 15:07 err.txt
+-rw-rw-r-- 1 gribov gribov   88 мар 20 09:52 home_animals # домашние животные
+-rw------- 1 gribov gribov   20 фев 27 17:14 .lesshst
+-rw-rw-r-- 1 gribov gribov 1520 фев 27 14:59 ll_txt
+drwxrwxr-x 3 gribov gribov 4096 фев 24 14:42 .local/
+-rw-rw-r-- 1 gribov gribov   49 мар 20 09:54 pack_animals # вьючные животные
+-rw-r--r-- 1 gribov gribov  807 мар 31  2024 .profile
+drwx------ 2 gribov gribov 4096 дек 20 10:47 .ssh/
+-rw-rw-r-- 1 gribov gribov  104 фев 27 15:07 std.txt
+-rw-r--r-- 1 gribov gribov    0 дек 20 10:48 .sudo_as_admin_successful
+-rw-rw-r-- 1 gribov gribov  380 фев 27 17:24 testsc
+-rw------- 1 gribov gribov 1221 мар 20 09:25 .viminfo
+-rw------- 1 gribov gribov  100 янв 16 09:03 .Xauthority
+#----------------------------------------------------------------------------------------
+
+gribov@usvr:~$ cat home_animals pack_animals > animals # объединил
+
+gribov@usvr:~$ cat animals #посмотреть содержимое файла
+кошка
+собака
+пёс
+хомяк
+попугай
+золотая рыбка
+мул
+лошадь
+як
+осёл
+верблюд
+
+gribov@usvr:~$ mv animals mans_friends # переименую
+
+#----------------------------------------------------------------------------------------
+gribov@usvr:~$ ll
+total 84
+drwxr-x--- 5 gribov gribov 4096 мар 20 10:20 ./
+drwxr-xr-x 3 root   root   4096 дек 20 10:46 ../
+-rw-rw-r-- 1 gribov gribov  140 мар 20 09:25 all.txt
+-rw------- 1 gribov gribov 2091 фев 27 17:57 .bash_history
+-rw-r--r-- 1 gribov gribov  220 мар 31  2024 .bash_logout
+-rw-r--r-- 1 gribov gribov 3771 мар 31  2024 .bashrc
+drwx------ 2 gribov gribov 4096 дек 20 10:47 .cache/
+-rwxrwxr-x 1 gribov gribov  244 фев 27 17:39 cycles.sh*
+-rw-rw-r-- 1 gribov gribov   36 фев 27 15:07 err.txt
+-rw-rw-r-- 1 gribov gribov   88 мар 20 09:52 home_animals
+-rw------- 1 gribov gribov   20 фев 27 17:14 .lesshst
+-rw-rw-r-- 1 gribov gribov 1520 фев 27 14:59 ll_txt
+drwxrwxr-x 3 gribov gribov 4096 фев 24 14:42 .local/
+-rw-rw-r-- 1 gribov gribov  137 мар 20 10:10 mans_friends # наш новый файл
+-rw-rw-r-- 1 gribov gribov   49 мар 20 09:54 pack_animals
+-rw-r--r-- 1 gribov gribov  807 мар 31  2024 .profile
+drwx------ 2 gribov gribov 4096 дек 20 10:47 .ssh/
+-rw-rw-r-- 1 gribov gribov  104 фев 27 15:07 std.txt
+-rw-r--r-- 1 gribov gribov    0 дек 20 10:48 .sudo_as_admin_successful
+-rw-rw-r-- 1 gribov gribov  380 фев 27 17:24 testsc
+-rw------- 1 gribov gribov 1221 мар 20 09:25 .viminfo
+-rw------- 1 gribov gribov  100 янв 16 09:03 .Xauthority
+#----------------------------------------------------------------------------------------
+
+
+# 2. Создать директорию, переместить файл туда.
+
+gribov@usvr:~$ mkdir my_animals # создал дирректорию
+gribov@usvr:~$ mv mans_friends my_animals # перемещаю указываю относительные пути
+gribov@usvr:~$ cd my_animals/ # перехожу в созданную дирректорию
+gribov@usvr:~/my_animals$ ll # смотрю
+total 12
+drwxrwxr-x 2 gribov gribov 4096 мар 20 10:31 ./
+drwxr-x--- 6 gribov gribov 4096 мар 20 10:31 ../
+-rw-rw-r-- 1 gribov gribov  137 мар 20 10:24 mans_friends # наш файл
+gribov@usvr:~/my_animals$
+
+
+
+# 3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+# из этого репозитория.
+
+# 3.1 Проверим подключённые репозитории
+gribov@usvr:~$ sudo apt update 
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu noble InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu noble-updates InRelease
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu noble-backports InRelease
+Сущ:4 https://download.docker.com/linux/ubuntu noble InRelease
+Сущ:5 http://security.ubuntu.com/ubuntu noble-security InRelease
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Может быть обновлено 160 пакетов. Запустите «apt list --upgradable» для их показа.
+gribov@usvr:~$
+
+# 3.2 Установим утилиту wget, если она ещё не установлена:
+gribov@usvr:~$ sudo apt -y install wget
+
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Уже установлен пакет wget самой новой версии (1.21.4-1ubuntu4.1).
+wget помечен как установленный вручную.
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  docker-ce-rootless-extras libltdl7 libslirp0 slirp4netns
+Для их удаления используйте «sudo apt autoremove».
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 160 пакетов не обновлено.
+gribov@usvr:~$
+
+# 3.3 Скачаем пакет конфигурации репозитория MySQL:
+gribov@usvr:~$ wget https://repo.mysql.com//mysql-apt-config_0.8.33-1_all.deb
+
+--2025-03-20 11:07:14--  https://repo.mysql.com//mysql-apt-config_0.8.33-1_all.deb
+Resolving repo.mysql.com (repo.mysql.com)... 23.52.19.30, 2a02:26f0:9500:e94::1d68, 2a02:26f0:9500:ea7::1d68
+Connecting to repo.mysql.com (repo.mysql.com)|23.52.19.30|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 18072 (18K) [application/x-debian-package]
+Saving to: ‘mysql-apt-config_0.8.33-1_all.deb’
+
+mysql-apt-config_0.8.33-1_all.deb                               100%[============>]  17,65K  --.-KB/s    in 0s
+
+2025-03-20 11:07:14 (63,5 MB/s) - ‘mysql-apt-config_0.8.33-1_all.deb’ saved [18072/18072]
+
+gribov@usvr:~$
+
+# 3.4 Установить GnuPG:
+# GnuPG (GNU Privacy Guard) требуется для проверки целостности и подлинности пакетов программного обеспечения. 
+# Установите его с помощью следующей команды:
+gribov@usvr:~$ sudo apt install gnupg
+
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Уже установлен пакет gnupg самой новой версии (2.4.4-2ubuntu17).
+gnupg помечен как установленный вручную.
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  docker-ce-rootless-extras libltdl7 libslirp0 slirp4netns
+Для их удаления используйте «sudo apt autoremove».
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 160 пакетов не обновлено.
+gribov@usvr:~$
+
+# 3.5 Установим скачанный пакет:
+gribov@usvr:~$ sudo dpkg -i mysql-apt-config_0.8.33-1_all.deb
+
+(Чтение базы данных … на данный момент установлено 122849 файлов и каталогов.)
+Подготовка к распаковке mysql-apt-config_0.8.33-1_all.deb …
+Распаковывается mysql-apt-config (0.8.33-1) на замену (0.8.33-1) …
+Настраивается пакет mysql-apt-config (0.8.33-1) …
+gribov@usvr:~$
+
+# 3.6 Установка MySQL
+# Теперь, когда репозиторий добавлен, мы можем приступить к установке MySQL
+
+# 3.6.1 Обновиv список пакетов:
+gribov@usvr:~$ sudo apt update
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu noble InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu noble-updates InRelease
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu noble-backports InRelease
+Сущ:4 http://security.ubuntu.com/ubuntu noble-security InRelease
+Сущ:5 https://download.docker.com/linux/ubuntu noble InRelease
+Пол:6 http://repo.mysql.com/apt/ubuntu noble InRelease [22,7 kB]	# появился подключённый репозиторий mysql
+Пол:7 http://repo.mysql.com/apt/ubuntu noble/mysql-8.4-lts Sources [967 B]
+Пол:8 http://repo.mysql.com/apt/ubuntu noble/mysql-8.4-lts amd64 Packages [12,6 kB]
+Пол:9 http://repo.mysql.com/apt/ubuntu noble/mysql-tools amd64 Packages [4 192 B]
+Получено 40,4 kB за 1с (35,2 kB/s)
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Может быть обновлено 160 пакетов. Запустите «apt list --upgradable» для их показа.
+gribov@usvr:~$
+
+# 3.6.2 Установим MYSQL сервер
+gribov@usvr:~$ sudo apt -y install mysql-server
+
+# 3.6.3 Проверим
+gribov@usvr:~$ systemctl status mysql
+
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/usr/lib/systemd/system/mysql.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2025-03-20 11:24:04 UTC; 2min 39s ago
+       Docs: man:mysqld(8)
+             http://dev.mysql.com/doc/refman/en/using-systemd.html
+   Main PID: 336279 (mysqld)
+     Status: "Server is operational"
+      Tasks: 34 (limit: 9443)
+     Memory: 512.0M (peak: 515.3M)
+        CPU: 6.869s
+     CGroup: /system.slice/mysql.service
+             └─336279 /usr/sbin/mysqld
+
+мар 20 11:23:51 usvr systemd[1]: Starting mysql.service - MySQL Community Server...
+мар 20 11:24:04 usvr systemd[1]: Started mysql.service - MySQL Community Server.
+gribov@usvr:~$
+
+# 3.6.4 Подключимся к MySQL
+gribov@usvr:~$ sudo mysql
+
+# 3.6.4 Создадим пользовтеля gribov, пароль 1234, 
+# для соединения с базами mysql при помощи DBeaver на хост системе Windows IP 10.1.10.133 
+mysql> CREATE USER 'gribov'@'10.1.10.133' IDENTIFIED BY '1234';
+Query OK, 0 rows affected (0,06 sec)
+
+# 3.6.5 Создадим тестовую базу данных
+mysql> CREATE DATABASE mysql_test_db;
+Query OK, 1 row affected (0,00 sec)
+
+
+# 3.6.6 Предоставьте пользователю все необходимые привилегии для работы c БД:
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'gribov'@'10.1.10.133' WITH GRANT OPTION;
+Query OK, 0 rows affected (0,01 sec)
+
+# 3.6.7 Чтобы изменения вступили в силу, обновим привилегии:
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0,05 sec)
+
+#3.6.8 Проверяем соединение с БД через DBeaver
+# выбираем тип соединения mysql, ip вирт машины с mysql 10.1.10.71
+# пользователь gribov, пароль 1234,
+# в свойствах драйвера AllowPublicKeyRetrieval = TRUE
+
+
+
+
+# 4. Установить и удалить deb-пакет с помощью dpkg.
+
+# 4.1 С помощью команды wget скачаем dep пакет, чтобы он находился локально
+root@usvr:~# wget https://download.virtualbox.org/virtualbox/7.1.6/virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb
+
+--2025-03-20 14:57:15--  https://download.virtualbox.org/virtualbox/7.1.6/virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb
+Resolving download.virtualbox.org (download.virtualbox.org)... 104.108.144.89
+Connecting to download.virtualbox.org (download.virtualbox.org)|104.108.144.89|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 106941464 (102M) [text/plain]
+Saving to: ‘virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb’
+
+virtualbox-7.1_7.1.6-167084~Ubuntu~oracular 100%[=================================>] 101,99M  13,3MB/s    in 8,4s
+
+2025-03-20 14:57:24 (12,1 MB/s) - ‘virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb’ saved [106941464/106941464]
+
+
+# 4.2 Проверим
+root@usvr:~# ll
+total 104512
+drwx------  7 root root      4096 мар 20 14:57 ./
+drwxr-xr-x 23 root root      4096 дек 20 10:39 ../
+-rw-------  1 root root     12782 мар 20 13:17 .bash_history
+-rw-r--r--  1 root root      3106 апр 22  2024 .bashrc
+-rw-------  1 root root        20 мар 20 13:27 .lesshst
+drwxr-xr-x  3 root root      4096 дек 20 13:19 .local/
+-rw-------  1 root root       748 мар 20 13:56 .mysql_history
+-rw-r--r--  1 root root       161 апр 22  2024 .profile
+drwx------  3 root root      4096 дек 20 13:47 snap/
+drwx------  2 root root      4096 дек 20 10:46 .ssh/
+drwxr-xr-x  2 root root      4096 мар 20 13:35 .vim/
+-rw-------  1 root root     11380 мар 20 13:38 .viminfo
+-rw-r--r--  1 root root 106941464 янв 21 15:04 virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb # есть!
+drwxr-xr-x  3 root root      4096 фев 27 10:09 wordpress/
+root@usvr:~#
+
+# 4.3 Скачаем открытые ключи Oracle для проверки подписей и выполним регистрацию 
+
+root@usvr:~# wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
+
+--2025-03-20 15:09:27--  https://www.virtualbox.org/download/oracle_vbox_2016.asc
+Resolving www.virtualbox.org (www.virtualbox.org)... 23.211.82.196, 2a02:26f0:d8:3b3::37b7, 2a02:26f0:d8:3a9::37b7
+Connecting to www.virtualbox.org (www.virtualbox.org)|23.211.82.196|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3157 (3,1K) [application/pgp-signature]
+Saving to: ‘STDOUT’
+
+-                                           100%[=============================================================================>]   3,08K  --.-KB/s    in 0,009s
+
+2025-03-20 15:09:28 (362 KB/s) - written to stdout [3157/3157]
+
+root@usvr:~#
+
+# 4.4 Устанавливаем
+
+root@usvr:~# dpkg -i virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb
+
+Выбор ранее не выбранного пакета virtualbox-7.1.
+(Чтение базы данных … на данный момент установлено 123266 файлов и каталогов.)
+Подготовка к распаковке virtualbox-7.1_7.1.6-167084~Ubuntu~oracular_amd64.deb …
+Распаковывается virtualbox-7.1 (7.1.6-167084~Ubuntu~oracular) …
+dpkg: зависимости пакетов не позволяют настроить пакет virtualbox-7.1:
+ virtualbox-7.1 зависит от libvulkan1, однако:
+  Пакет libvulkan1 не установлен.
+ virtualbox-7.1 зависит от libgl1, однако:
+  Пакет libgl1 не установлен.
+ virtualbox-7.1 зависит от liblzf1 (>= 1.5), однако:
+  Пакет liblzf1 не установлен.
+ virtualbox-7.1 зависит от libqt6core6t64 (>= 6.6.1), однако:
+  Пакет libqt6core6t64 не установлен.
+ virtualbox-7.1 зависит от libqt6dbus6 (>= 6.1.2), однако:
+  Пакет libqt6dbus6 не установлен.
+ virtualbox-7.1 зависит от libqt6gui6 (>= 6.4.0), однако:
+  Пакет libqt6gui6 не установлен.
+ virtualbox-7.1 зависит от libqt6help6 (>= 6.6.0), однако:
+  Пакет libqt6help6 не установлен.
+ virtualbox-7.1 зависит от libqt6printsupport6 (>= 6.1.2), однако:
+  Пакет libqt6printsupport6 не установлен.
+ virtualbox-7.1 зависит от libqt6statemachine6 (>= 6.6.1), однако:
+  Пакет libqt6statemachine6 не установлен.
+ virtualbox-7.1 зависит от libqt6widgets6 (>= 6.3.0), однако:
+  Пакет libqt6widgets6 не установлен.
+ virtualbox-7.1 зависит от libqt6xml6 (>= 6.6.0), однако:
+  Пакет libqt6xml6 не установлен.
+ virtualbox-7.1 зависит от libtpms0 (>= 0.8.0~dev1), однако:
+  Пакет libtpms0 не установлен.
+ virtualbox-7.1 зависит от libvpx9 (>= 1.12.0), однако:
+  Пакет libvpx9 не установлен.
+ virtualbox-7.1 зависит от libxt6t64, однако:
+  Пакет libxt6t64 не установлен.
+
+dpkg: ошибка при обработке пакета virtualbox-7.1 (--install):
+ проблемы зависимостей — оставляем не настроенным
+Обрабатываются триггеры для shared-mime-info (2.4-4) …
+При обработке следующих пакетов произошли ошибки:
+ virtualbox-7.1
+root@usvr:~#
+
+# 4.5 Eсть проблемы зависимостей
+# Исправляем, устанавливаем все требуемые компоненты
+root@udesc:~# apt -f install
+# исправление зависимостей… Готово
+
+
+# 4.6 Удалим
+root@udesc:~# dpkg -r virtualbox-7.1
+root@usvr:~# dpkg --purge virtualbox-7.1 # удаление так же и настро файлов
+
+
+# 5. Выложить историю команд в терминале ubuntu
+# Выполнено.

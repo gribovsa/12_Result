@@ -11,23 +11,25 @@ public class ConsoleView {
     public static final String ANSI_RESET = "\u001B[0m";
 
 
-
-    public Integer mainMenu(){
+    public Integer mainMenu() {
         printColorLine("Доступные действия:", GREEN_COLOR);
-        System.out.println("1 - [Добавить животное], 2 - [Показать навыки животного], 3 - [Добавить навык животному]");
+        System.out.println("1 - [Добавить животное], 2 - [Показать навыки животного], 3 - [Добавить навык животному], 0 - [Выход]");
         Scanner scanner = new Scanner(System.in);
         String data = scanner.nextLine();
         // scanner.close();
-        if (data.equals("1")){
+        if (data.equals("1")) {
             return 1;
         } else {
-            if (data.equals("2")){
+            if (data.equals("2")) {
                 return 2;
-            }else {
-                if (data.equals("3")){
+            } else {
+                if (data.equals("3")) {
                     return 3;
-                }else {
-                    return 0;
+                } else {
+                    if (data.equals("0")) {
+                        return 0;
+                    }
+                    return 100;
                 }
             }
         }
@@ -39,10 +41,10 @@ public class ConsoleView {
         System.out.println("Кличка, Пол, Дата Рождения, Класс, Вид, Порода, Тип животного");
         Scanner scanner = new Scanner(System.in);
         String data = scanner.nextLine();
-        scanner.close();
+        // scanner.close();
 
         try {
-            if (data.isEmpty()){
+            if (data.isEmpty()) {
                 throw new IllegalArgumentException("Вы ничего не ввели!");
             }
             String[] dataArray = data.split(",");
@@ -64,10 +66,10 @@ public class ConsoleView {
         System.out.println("N: навык1, навык2, навык3.....");
         Scanner scanner = new Scanner(System.in);
         String data = scanner.nextLine();
-        scanner.close();
+        // scanner.close();
 
         try {
-            if (data.isEmpty()){
+            if (data.isEmpty()) {
                 throw new IllegalArgumentException("Вы ничего не ввели!");
             }
             String[] dataArray = data.split(":");
@@ -84,9 +86,40 @@ public class ConsoleView {
         }
     }
 
+    public Integer viewSkillMenu() {
+        printColorLine("Доступные действия:", GREEN_COLOR);
+        System.out.println("1 - [Вернуться в главное меню], Любой символ - [Выйти]]");
+        Scanner scanner = new Scanner(System.in);
+        String data = scanner.nextLine();
+        // scanner.close();
+        try{
+            if(Integer.parseInt(data) == 1){
+                return Integer.parseInt(data);
+            }else {
+                return 0;
+            }
+        }catch (NumberFormatException e) {
+            //System.out.println("Вы ввели недопустимое значение: " + e.getMessage());
+            return 0;
+        }
+    }
 
+    //метод возвращает номер животного, для которого осуществить поиск навыков
+    public Integer getNumFindAnimal() {
+        try {
+            System.out.println("Введите индекс животного, для которого показать навыки");
+            Scanner scanner = new Scanner(System.in);
+            String data = scanner.nextLine();
+            //scanner.close();
+            return Integer.parseInt(data);
+        } catch (NumberFormatException e) {
+            System.out.println("Вы ввели недопустимое значение: " + e.getMessage());
+            return null;
+        }
+
+    }
     //методы используемые для формления
-    private void printColorLine(String row, String displayColor) {
+    private void printColorLine (String row, String displayColor){
         System.out.printf("%s%s%s\n", displayColor, row, ANSI_RESET);
     }
 }
