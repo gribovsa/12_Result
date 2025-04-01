@@ -1,15 +1,12 @@
 package model;
 
 
-import services.FileOperations;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class Model {
-    //В этом классе основная бизнес логика т.е методы проверки введённых данных
+public class AbstractAnimal {
 
 
     //Поля класса
@@ -25,9 +22,7 @@ public class Model {
     private String skillName;
 
 
-
-
-    //Геттеры
+//Геттеры
 
     public String getNickName() {
         return nickName;
@@ -64,6 +59,10 @@ public class Model {
     public String getSkillName() {
         return skillName;
     }
+
+
+
+    //Методы проверки введённых данных
 
     //Основной метод проверки данных
     public void checkData(String[] data) throws IOException {

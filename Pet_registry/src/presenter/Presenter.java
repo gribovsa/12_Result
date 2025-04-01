@@ -1,7 +1,7 @@
 package presenter;
 
 
-import model.Model;
+import model.AbstractAnimal;
 
 import services.FileOperations;
 import view.ConsoleView;
@@ -11,11 +11,11 @@ import java.io.IOException;
 
 
 public class Presenter {
-    private final Model model;
+    private final AbstractAnimal model;
     private final FileOperations fileOperations; //ссылка на интерфейс
     private final ConsoleView view;
 
-    public Presenter(Model model, FileOperations fileOperations, ConsoleView view) {
+    public Presenter(AbstractAnimal model, FileOperations fileOperations, ConsoleView view) {
         this.model = model;
         this.fileOperations = fileOperations;
         this.view = view;
@@ -44,6 +44,7 @@ public class Presenter {
                         System.out.println("До свидания!");
                         return;
                     }
+                    return;
                 case (3):
                     //3 - [Добавить навык животному]
                     System.out.println("Будет добавлен навык животному");
@@ -52,7 +53,7 @@ public class Presenter {
                     break;
                 case (0):
                     //0 - [Выход]
-                    System.out.println("До свиданья, друг мой, до свиданья!");
+                    System.out.println("До свидания!");
                     return;
                 case (100):
                     //0 - [Ввели недопустимое значение]
